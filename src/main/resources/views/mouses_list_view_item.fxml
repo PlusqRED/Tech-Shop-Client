@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="440.0" prefWidth="1000.0"
+            xmlns="http://javafx.com/javafx/11.0.1">
+    <children>
+        <Label layoutX="88.0" layoutY="142.0" text="Изображение"/>
+        <ImageView fx:id="image" fitHeight="370.0" fitWidth="385.0" layoutY="1.0" pickOnBounds="true"
+                   preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="615.0"
+                   AnchorPane.topAnchor="1.0"/>
+        <JFXTextArea fx:id="description" editable="false" layoutX="674.0" layoutY="45.0" prefHeight="309.0"
+                     prefWidth="276.0" promptText="Описание">
+            <font>
+                <Font size="16.0"/>
+            </font>
+        </JFXTextArea>
+        <VBox layoutX="410.0" layoutY="19.0" prefHeight="345.0" prefWidth="217.0" spacing="15.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5e8eb" height="30.0" stroke="BLACK"
+                           strokeType="INSIDE" width="235.0"/>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5e8eb" height="30.0" stroke="BLACK"
+                           strokeType="INSIDE" width="235.0"/>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5e8eb" height="30.0" stroke="BLACK"
+                           strokeType="INSIDE" width="235.0"/>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5e8eb" height="30.0" stroke="BLACK"
+                           strokeType="INSIDE" width="235.0"/>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5e8eb" height="30.0" stroke="BLACK"
+                           strokeType="INSIDE" width="235.0"/>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5e8eb" height="30.0" stroke="BLACK"
+                           strokeType="INSIDE" width="235.0"/>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5e8eb" height="30.0" stroke="BLACK"
+                           strokeType="INSIDE" width="235.0"/>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5e8eb" height="30.0" stroke="BLACK"
+                           strokeType="INSIDE" width="235.0"/>
+            </children>
+        </VBox>
+        <VBox layoutX="413.0" layoutY="19.0" spacing="15.0">
+            <children>
+                <Text fx:id="type" strokeType="OUTSIDE" strokeWidth="0.0" text="Тип">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" text="Название">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="manufacturer" strokeType="OUTSIDE" strokeWidth="0.0" text="Производитель">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="releaseDate" strokeType="OUTSIDE" strokeWidth="0.0" text="Дата выхода">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="weight" strokeType="OUTSIDE" strokeWidth="0.0" text="Вес">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="color" strokeType="OUTSIDE" strokeWidth="0.0" text="Цвет">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="material" strokeType="OUTSIDE" strokeWidth="0.0" text="Материал">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="price" strokeType="OUTSIDE" strokeWidth="0.0" text="Стоимость">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+            </children>
+        </VBox>
+        <HBox layoutX="219.0" layoutY="394.0" spacing="30.0">
+            <children>
+                <Text fx:id="connectionType" strokeType="OUTSIDE" strokeWidth="0.0" text="Тип соединения">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="sensorType" strokeType="OUTSIDE" strokeWidth="0.0" text="Тип сенсора">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="buttonAmount" strokeType="OUTSIDE" strokeWidth="0.0" text="Количество кнопок">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="687.0"
+            xmlns="http://javafx.com/javafx/11.0.1">
+    <children>
+        <VBox layoutX="84.0" layoutY="66.0" spacing="30.0">
+            <children>
+                <JFXTextField fx:id="type" promptText="Тип"/>
+                <JFXTextField fx:id="name" prefHeight="25.0" prefWidth="177.0" promptText="Название"/>
+                <JFXTextField fx:id="description" prefHeight="25.0" prefWidth="177.0" promptText="Описание"/>
+                <JFXTextField fx:id="price" prefHeight="25.0" prefWidth="177.0" promptText="Цена"/>
+                <JFXTextField fx:id="manufacturer" prefHeight="25.0" prefWidth="177.0" promptText="Производитель"/>
+                <JFXTextField fx:id="weight" prefHeight="25.0" prefWidth="177.0" promptText="Вес"/>
+                <JFXDatePicker fx:id="releaseDate" promptText="Дата выхода"/>
+                <JFXTextField fx:id="color" prefHeight="25.0" prefWidth="177.0" promptText="Цвет"/>
+                <JFXTextField fx:id="material" prefHeight="25.0" prefWidth="177.0" promptText="Материал"/>
+            </children>
+        </VBox>
+        <VBox layoutX="307.0" layoutY="127.0" spacing="30.0">
+            <children>
+                <JFXTextField fx:id="diagonal" promptText="Диагональ"/>
+                <JFXTextField fx:id="aspectRatio" promptText="Соотношение сторон"/>
+                <JFXTextField fx:id="resolution" promptText="Разрешение"/>
+                <JFXTextField fx:id="matrixType" promptText="Тип матрицы"/>
+                <JFXTextField fx:id="matrixFrequency" promptText="Частота матрицы"/>
+                <JFXCheckBox fx:id="builtInSpeakers" text="Встроенные динамики"/>
+            </children>
+        </VBox>
+        <JFXButton layoutX="509.0" layoutY="200.0" onAction="#add" prefHeight="154.0" prefWidth="90.0"
+                   style="-fx-background-color: #abffab;" text="Добавить"/>
+    </children>
+</AnchorPane>

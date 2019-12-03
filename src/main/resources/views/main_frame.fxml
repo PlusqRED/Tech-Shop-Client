@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="800.0" prefWidth="1000.0"
+            xmlns="http://javafx.com/javafx/11.0.1">
+    <children>
+        <TabPane layoutX="88.0" layoutY="-6.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE"
+                 AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                 AnchorPane.topAnchor="0.0">
+            <tabs>
+                <Tab text="Мониторы">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <JFXListView fx:id="monitors_lv" prefHeight="406.0" prefWidth="200.0"
+                                             AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0"
+                                             AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                                <HBox layoutX="276.0" layoutY="653.0" spacing="30.0" AnchorPane.bottomAnchor="40.0">
+                                    <children>
+                                        <VBox spacing="30.0">
+                                            <children>
+                                                <JFXTextField fx:id="monitors_search" prefHeight="25.0"
+                                                              prefWidth="288.0" promptText="Поиск по названию"/>
+                                                <HBox spacing="20.0">
+                                                    <children>
+                                                        <Label text="Цена"/>
+                                                        <JFXTextField fx:id="monitors_from" prefHeight="25.0"
+                                                                      prefWidth="101.0" promptText="От"/>
+                                                        <JFXTextField fx:id="monitors_till" prefHeight="25.0"
+                                                                      prefWidth="101.0" promptText="До"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                        <JFXButton onAction="#monitorsApply" prefHeight="80.0" prefWidth="130.0"
+                                                   style="-fx-background-color: #aaffaa;" text="Применить фильтры"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Мыши">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <JFXListView fx:id="mouses_lv" AnchorPane.bottomAnchor="150.0"
+                                             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                             AnchorPane.topAnchor="0.0"/>
+                                <HBox layoutX="276.0" layoutY="652.0" spacing="30.0" AnchorPane.bottomAnchor="40.0">
+                                    <children>
+                                        <VBox spacing="30.0">
+                                            <children>
+                                                <JFXTextField fx:id="mouses_search" prefHeight="25.0" prefWidth="288.0"
+                                                              promptText="Поиск по названию"/>
+                                                <HBox spacing="20.0">
+                                                    <children>
+                                                        <Label text="Цена"/>
+                                                        <JFXTextField fx:id="mouses_from" prefHeight="25.0"
+                                                                      prefWidth="101.0" promptText="От"/>
+                                                        <JFXTextField fx:id="mouses_till" prefHeight="25.0"
+                                                                      prefWidth="101.0" promptText="До"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                        <JFXButton onAction="#mousesApply" prefHeight="80.0" prefWidth="130.0"
+                                                   style="-fx-background-color: #aaffaa;" text="Применить фильтры"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Клавиатуры">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <JFXListView fx:id="keyboards_lv" layoutX="123.0" layoutY="63.0"
+                                             AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0"
+                                             AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                                <HBox layoutX="276.0" layoutY="650.0" spacing="30.0" AnchorPane.bottomAnchor="40.0">
+                                    <children>
+                                        <VBox spacing="30.0">
+                                            <children>
+                                                <JFXTextField fx:id="keyboards_search" prefHeight="25.0"
+                                                              prefWidth="288.0" promptText="Поиск по названию"/>
+                                                <HBox spacing="20.0">
+                                                    <children>
+                                                        <Label text="Цена"/>
+                                                        <JFXTextField fx:id="keyboards_from" prefHeight="25.0"
+                                                                      prefWidth="101.0" promptText="От"/>
+                                                        <JFXTextField fx:id="keyboards_till" prefHeight="25.0"
+                                                                      prefWidth="101.0" promptText="До"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                        <JFXButton onAction="#keyboardsApply" prefHeight="80.0" prefWidth="130.0"
+                                                   style="-fx-background-color: #aaffaa;" text="Применить фильтры"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Смартфоны">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <JFXListView fx:id="smartphones_lv" layoutX="140.0" layoutY="48.0"
+                                             AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0"
+                                             AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                                <HBox layoutX="276.0" layoutY="653.0" spacing="30.0" AnchorPane.bottomAnchor="40.0">
+                                    <children>
+                                        <VBox spacing="30.0">
+                                            <children>
+                                                <JFXTextField fx:id="smartphones_search" prefHeight="25.0"
+                                                              prefWidth="288.0" promptText="Поиск по названию"/>
+                                                <HBox spacing="20.0">
+                                                    <children>
+                                                        <Label text="Цена"/>
+                                                        <JFXTextField fx:id="smartphones_from" prefHeight="25.0"
+                                                                      prefWidth="101.0" promptText="От"/>
+                                                        <JFXTextField fx:id="smartphones_till" prefHeight="25.0"
+                                                                      prefWidth="101.0" promptText="До"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                        <JFXButton onAction="#smartphonesApply" prefHeight="80.0" prefWidth="130.0"
+                                                   style="-fx-background-color: #aaffaa;" text="Применить фильтры"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="seller_admin_add_product" text="Добавление продукции">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <JFXComboBox fx:id="addProductComboBox" layoutX="362.0" layoutY="61.0" prefHeight="25.0"
+                                             prefWidth="277.0" promptText="Выберите тип добавляемого продукта"/>
+                                <Pane fx:id="addPane" layoutX="151.0" layoutY="165.0" prefHeight="416.0"
+                                      prefWidth="699.0"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="adminStatistic" text="Статистика">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="statistic_tv" layoutX="246.0" layoutY="94.0" prefHeight="200.0"
+                                           prefWidth="200.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0"
+                                           AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn prefWidth="156.0" text="Дата сделки"/>
+                                        <TableColumn prefWidth="390.0" text="Название продукта"/>
+                                        <TableColumn prefWidth="206.0" text="Цена сделки"/>
+                                        <TableColumn minWidth="0.0" prefWidth="247.0" text="Покупатель"/>
+                                    </columns>
+                                </TableView>
+                                <VBox layoutX="248.0" layoutY="587.0" prefHeight="155.0" prefWidth="504.0"
+                                      spacing="40.0">
+                                    <children>
+                                        <HBox spacing="30.0">
+                                            <children>
+                                                <Label prefHeight="17.0" prefWidth="250.0" text="Самый ходовой продукт">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                </Label>
+                                                <JFXTextField fx:id="topProductName" editable="false"
+                                                              prefHeight="25.0"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox spacing="30.0">
+                                            <children>
+                                                <Label prefHeight="17.0" prefWidth="250.0"
+                                                       text="Самый частый покупатель">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                </Label>
+                                                <JFXTextField fx:id="topCustomerName" editable="false"
+                                                              prefHeight="25.0"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox spacing="30.0">
+                                            <children>
+                                                <Label prefHeight="17.0" prefWidth="250.0" text="Общая выручка">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                </Label>
+                                                <JFXTextField fx:id="totlalRevenue" editable="false" prefHeight="25.0"/>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                                <JFXButton layoutX="775.0" layoutY="636.0" onAction="#updateStatisticItems"
+                                           prefHeight="73.0" prefWidth="129.0" style="-fx-background-color: #ab66aa;"
+                                           text="Обновить">
+                                    <font>
+                                        <Font size="17.0"/>
+                                    </font>
+                                </JFXButton>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
