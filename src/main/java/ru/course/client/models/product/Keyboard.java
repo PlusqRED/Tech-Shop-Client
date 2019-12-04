@@ -17,6 +17,16 @@ public class Keyboard extends Product {
     private boolean moistureProtection;
     private Color color;
     private Material material;
+
+    @Override
+    public String toString() {
+        return "Keyboard: " +
+                "connectionType='" + connectionType + '\'' +
+                ", backlight=" + backlight +
+                ", moistureProtection=" + moistureProtection +
+                ", color=" + color +
+                ", material=" + material;
+    }
 }
 
 

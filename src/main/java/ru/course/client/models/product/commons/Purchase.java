@@ -25,4 +25,12 @@ public class Purchase {
                 .productName(purchase.product.getName())
                 .build();
     }
+
+    @Override
+    public String toString() {
+        return "Purchase: " +
+                "appUser=" + appUser +
+                ", product=" + product +
+                ", purchaseDate='" + purchaseDate + '\'';
+    }
 }

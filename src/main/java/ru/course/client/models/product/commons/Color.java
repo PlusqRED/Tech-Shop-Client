@@ -12,4 +12,11 @@ import lombok.NoArgsConstructor;
 public class Color {
     private Integer id;
     private String name;
+
+    @Override
+    public String toString() {
+        return "Color: " +
+                "id=" + id +
+                ", name='" + name + '\'';
+    }
 }

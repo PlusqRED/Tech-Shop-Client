@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -31,8 +32,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.counting;
-import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -140,6 +140,86 @@ public class MainFrameController {
         addProductComboBox.setOnAction(e -> {
             renderProperPane(addProductComboBox.getSelectionModel().getSelectedItem());
         });
+    }
+
+    @FXML
+    void sortKeyboardsByPrice(ActionEvent event) {
+
+    }
+
+    @FXML
+    void sortMonitorsByPrice(ActionEvent event) {
+
+    }
+
+    @FXML
+    void sortMousesByPrice(ActionEvent event) {
+
+    }
+
+    @FXML
+    void sortSmartphonesByPrice(ActionEvent event) {
+
+    }
+
+    @FXML
+    void printMonitorsDoc() {
+        Stage docStage = new Stage();
+        docStage.setTitle("Отчет");
+        Pane pane = new Pane();
+        pane.setPrefSize(600, 600);
+        List<Monitor> monitors = monitorService.findAll();
+        String productInfo = monitors.stream().map(Monitor::toString).collect(joining("\n"));
+        JFXTextArea textArea = new JFXTextArea(productInfo);
+        textArea.setPrefSize(600, 600);
+        pane.getChildren().add(textArea);
+        docStage.setScene(new Scene(pane));
+        docStage.showAndWait();
+    }
+
+    @FXML
+    void printMousesDoc() {
+        Stage docStage = new Stage();
+        docStage.setTitle("Отчет");
+        Pane pane = new Pane();
+        pane.setPrefSize(600, 600);
+        List<Mouse> mouseList = mouseService.findAll();
+        String productInfo = mouseList.stream().map(Mouse::toString).collect(joining("\n"));
+        JFXTextArea textArea = new JFXTextArea(productInfo);
+        textArea.setPrefSize(600, 600);
+        pane.getChildren().add(textArea);
+        docStage.setScene(new Scene(pane));
+        docStage.showAndWait();
+    }
+
+    @FXML
+    void printKeyboardsDoc() {
+        Stage docStage = new Stage();
+        docStage.setTitle("Отчет");
+        Pane pane = new Pane();
+        pane.setPrefSize(600, 600);
+        List<Keyboard> keyboards = keyboardService.findAll();
+        String productInfo = keyboards.stream().map(Keyboard::toString).collect(joining("\n"));
+        JFXTextArea textArea = new JFXTextArea(productInfo);
+        textArea.setPrefSize(600, 600);
+        pane.getChildren().add(textArea);
+        docStage.setScene(new Scene(pane));
+        docStage.showAndWait();
+    }
+
+    @FXML
+    void printSmartphonesDoc() {
+        Stage docStage = new Stage();
+        docStage.setTitle("Отчет");
+        Pane pane = new Pane();
+        pane.setPrefSize(600, 600);
+        List<Smartphone> smartphones = smartphoneService.findAll();
+        String productInfo = smartphones.stream().map(Smartphone::toString).collect(joining("\n"));
+        JFXTextArea textArea = new JFXTextArea(productInfo);
+        textArea.setPrefSize(600, 600);
+        pane.getChildren().add(textArea);
+        docStage.setScene(new Scene(pane));
+        docStage.showAndWait();
     }
 
     private void loadStatisticItems() {

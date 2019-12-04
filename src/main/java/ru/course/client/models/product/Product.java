@@ -21,4 +21,18 @@ public class Product {
     private String releaseDate;
     private Float weight;
     private String imageUrl;
+
+    @Override
+    public String toString() {
+        return "Product: " +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", releaseDate='" + releaseDate + '\'' +
+                ", weight=" + weight +
+                ", imageUrl='" + imageUrl + '\'';
+    }
 }

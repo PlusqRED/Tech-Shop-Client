@@ -20,4 +20,17 @@ public class Smartphone extends Product {
     private Short numberOfFrontCameras;
     private Color color;
     private Material material;
+
+    @Override
+    public String toString() {
+        return "Smartphone: " +
+                "os='" + os + '\'' +
+                ", displaySize=" + displaySize +
+                ", displayResolution='" + displayResolution + '\'' +
+                ", ram='" + ram + '\'' +
+                ", numberOfBackCameras=" + numberOfBackCameras +
+                ", numberOfFrontCameras=" + numberOfFrontCameras +
+                ", color=" + color +
+                ", material=" + material;
+    }
 }

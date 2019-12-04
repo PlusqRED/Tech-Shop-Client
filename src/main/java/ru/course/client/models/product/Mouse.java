@@ -17,4 +17,14 @@ public class Mouse extends Product {
     private Short buttonAmount;
     private Color color;
     private Material material;
+
+    @Override
+    public String toString() {
+        return "Mouse: " +
+                "connectionType='" + connectionType + '\'' +
+                ", sensorType='" + sensorType + '\'' +
+                ", buttonAmount=" + buttonAmount +
+                ", color=" + color +
+                ", material=" + material;
+    }
 }

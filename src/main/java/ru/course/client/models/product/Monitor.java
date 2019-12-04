@@ -20,4 +20,17 @@ public class Monitor extends Product {
     private boolean builtInSpeakers;
     private Color color;
     private Material material;
+
+    @Override
+    public String toString() {
+        return "Monitor: " +
+                "diagonal=" + diagonal +
+                ", aspectRatio='" + aspectRatio + '\'' +
+                ", resolution='" + resolution + '\'' +
+                ", matrixType='" + matrixType + '\'' +
+                ", matrixFrequency='" + matrixFrequency + '\'' +
+                ", builtInSpeakers=" + builtInSpeakers +
+                ", color=" + color +
+                ", material=" + material;
+    }
 }

@@ -12,4 +12,11 @@ import lombok.NoArgsConstructor;
 public class Material {
     private Integer id;
     private String name;
+
+    @Override
+    public String toString() {
+        return "Material: " +
+                "id=" + id +
+                ", name='" + name + '\'';
+    }
 }
