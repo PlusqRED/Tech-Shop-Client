@@ -384,7 +384,7 @@ public class MainWindowController {
     private void renderSmartphoneItem(Smartphone smartphone) {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/smartphones_list_view_item.fxml"));
         controllerValidator.validate();
-        SmartphoneItemController controller = Launcher.context.getBean("smartphoneListViewItemController", SmartphoneItemController.class);
+        SmartphoneItemController controller = Launcher.context.getBean("smartphoneItemController", SmartphoneItemController.class);
         loader.setController(controller);
         releaseControllerValidator.validate();
         Parent parent = loader.load();
@@ -426,7 +426,7 @@ public class MainWindowController {
     private void renderMouseItem(Mouse mouse) {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mouses_list_view_item.fxml"));
         releaseControllerValidator.validate();
-        MouseItemController controller = Launcher.context.getBean("mouseListViewItemController", MouseItemController.class);
+        MouseItemController controller = Launcher.context.getBean("mouseItemController", MouseItemController.class);
         controllerValidator.validate();
         loader.setController(controller);
         Parent parent = loader.load();
@@ -464,7 +464,7 @@ public class MainWindowController {
     private void renderKeyboardItem(Keyboard keyboard) {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/keyboards_list_view_item.fxml"));
         controllerValidator.validate();
-        KeyboardItemController controller = Launcher.context.getBean("keyboardListViewItemController", KeyboardItemController.class);
+        KeyboardItemController controller = Launcher.context.getBean("keyboardItemController", KeyboardItemController.class);
         loader.setController(controller);
         releaseControllerValidator.validate();
         Parent parent = loader.load();
@@ -504,7 +504,7 @@ public class MainWindowController {
         releaseControllerValidator.validate();
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/monitors_list_view_item.fxml"));
         controllerValidator.validate();
-        MonitorItemController controller = Launcher.context.getBean("monitorListViewItemController", MonitorItemController.class);
+        MonitorItemController controller = Launcher.context.getBean("monitorItemController", MonitorItemController.class);
         releaseControllerValidator.validate();
         loader.setController(controller);
         Parent parent = loader.load();

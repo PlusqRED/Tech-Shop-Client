@@ -61,7 +61,7 @@ public class InsertMouseController {
 
     private void setUpRequiredFieldValidator(JFXTextField jfxTextField) {
         controllerValidator.validate();
-        RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator("Необходимо заполнить полеControllerValidator.checkVm();");
+        RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator("Необходимо заполнить поле!");
         releaseControllerValidator.validate();
         jfxTextField.getValidators().add(requiredFieldValidator);
         controllerValidator.validate();

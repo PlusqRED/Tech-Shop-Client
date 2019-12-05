@@ -1,5 +1,6 @@
 package ru.course.client.controllers;
 
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.fxml.FXML;
@@ -28,20 +29,29 @@ public class SignUpController {
     private JFXTextField login;
     @FXML
     private JFXTextField password;
-    @Value("Необходимо заполнить полеControllerValidator.checkVm();")
+    @Value("Необходимо заполнить поле!")
     private String REQUIRED_FIELD;
+    @FXML
+    private JFXTextField phoneNumber;
+
+    @FXML
+    private JFXDatePicker birthday;
     private SignInController signInController;
     private Stage signUpStage;
 
     public void initialize() {
         controllerValidator.validate();
         RequiredFieldValidator requiredLoginValidator = new RequiredFieldValidator(REQUIRED_FIELD);
+        RequiredFieldValidator requiredPhoneNumberValidator = new RequiredFieldValidator(REQUIRED_FIELD);
+        phoneNumber.getValidators().add(requiredPhoneNumberValidator);
+        RequiredFieldValidator requiredBirthdayValidator = new RequiredFieldValidator(REQUIRED_FIELD);
+        birthday.getValidators().add(requiredBirthdayValidator);
         releaseControllerValidator.validate();
         login.getValidators().addAll(requiredLoginValidator, checkIfLoginExistsValidator);
         controllerValidator.validate();
         RequiredFieldValidator requiredPasswordValidator = new RequiredFieldValidator(REQUIRED_FIELD);
         releaseControllerValidator.validate();
-        password.getValidators().addAll(requiredPasswordValidator);
+        password.getValidators().add(requiredPasswordValidator);
         controllerValidator.validate();
     }
 
@@ -57,19 +67,21 @@ public class SignUpController {
     @SneakyThrows
     public void signUp() {
         controllerValidator.validate();
-        if (login.validate() && password.validate()) {
+        if (login.validate() && password.validate() && phoneNumber.validate() && birthday.validate()) {
             releaseControllerValidator.validate();
             signUpStage.close();
             controllerValidator.validate();
             AppUser newCustomer = AppUser.builder()
                     .login(login.getText())
+                    .phoneNumber(phoneNumber.getText())
+                    .birthday(birthday.getValue().toString())
                     .password(password.getText())
                     .role(Role.builder().id(3).build())
                     .build();
             releaseControllerValidator.validate();
             serverAccountService.create(newCustomer);
             controllerValidator.validate();
-            appClientSession.setAppUser(newCustomer);
+            appClientSession.setAppUser(serverAccountService.getAppUserByLogin(newCustomer.getLogin()).get());
             releaseControllerValidator.validate();
             signInController.launchMainFrame();
             controllerValidator.validate();

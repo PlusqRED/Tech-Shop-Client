@@ -26,7 +26,7 @@ public class PassValidator extends ValidatorBase {
     private AppClientSession appClientSession;
 
     public PassValidator() {
-        super("Неверный парольControllerValidator.checkVm();");
+        super("Неверный пароль!");
     }
 
     @Override

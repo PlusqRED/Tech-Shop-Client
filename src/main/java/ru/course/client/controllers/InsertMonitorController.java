@@ -84,7 +84,7 @@ public class InsertMonitorController {
 
     private void setUpRequiredFieldValidator(JFXTextField jfxTextField) {
         controllerValidator.validate();
-        RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator("Необходимо заполнить полеControllerValidator.checkVm();");
+        RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator("Необходимо заполнить поле!");
         jfxTextField.getValidators().add(requiredFieldValidator);
         releaseControllerValidator.validate();
     }

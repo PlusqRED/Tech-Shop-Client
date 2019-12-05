@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -12,8 +13,8 @@ import lombok.NoArgsConstructor;
 public class AppUser {
     private String password;
     private Role role;
+    private String phoneNumber;
+    private String birthday;
     private Long id;
     private String login;
-
-
 }

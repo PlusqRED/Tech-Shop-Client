@@ -32,7 +32,7 @@ public class SignInController {
     @Setter
     private Stage stage;
 
-    @Value("Необходимо заполнить полеControllerValidator.checkVm();")
+    @Value("Необходимо заполнить поле!")
     private String REQUIRED_FIELD;
 
     public void initialize() {

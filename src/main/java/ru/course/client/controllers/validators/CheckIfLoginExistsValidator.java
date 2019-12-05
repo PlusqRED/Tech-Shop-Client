@@ -19,7 +19,7 @@ public class CheckIfLoginExistsValidator extends ValidatorBase {
     private FieldValidator fieldValidator;
 
     public CheckIfLoginExistsValidator() {
-        super("Пользователь с таким логином уже существуетControllerValidator.checkVm();");
+        super("Пользователь с таким логином уже существует!");
     }
 
     @Override
@@ -47,6 +47,11 @@ public class CheckIfLoginExistsValidator extends ValidatorBase {
             fieldValidator.validate();
         }
 
+    }
+
+    @Autowired
+    public void setFieldValidator(FieldValidator fieldValidator) {
+        this.fieldValidator = fieldValidator;
     }
 
     @Autowired

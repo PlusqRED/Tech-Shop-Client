@@ -65,7 +65,7 @@ public class InsertSmartphoneController {
 
     private void setUpRequiredFieldValidator(JFXTextField jfxTextField) {
         releaseControllerValidator.validate();
-        RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator("Необходимо заполнить полеControllerValidator.checkVm();");
+        RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator("Необходимо заполнить поле!");
         controllerValidator.validate();
         ReleaseControllerValidator.logValidate();
         jfxTextField.getValidators().add(requiredFieldValidator);
