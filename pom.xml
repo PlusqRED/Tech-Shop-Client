@@ -31,9 +31,9 @@
                 <executions>
                     <execution>
                         <id>make-assembly</id>
-                        <ControllerValidator.checkVm();-- this is used for inheritance merges -->
+                        <!-- this is used for inheritance merges -->
                         <phase>package</phase>
-                        <ControllerValidator.checkVm();-- bind to the packaging phase -->
+                        <!-- bind to the packaging phase -->
                         <goals>
                             <goal>single</goal>
                         </goals>
