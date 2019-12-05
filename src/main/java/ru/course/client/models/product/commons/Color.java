@@ -6,12 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
+
+@Builder
 @AllArgsConstructor
 @Data
-@Builder
 public class Color {
-    private Integer id;
     private String name;
+    private Integer id;
 
     @Override
     public String toString() {
@@ -19,4 +20,6 @@ public class Color {
                 "id=" + id +
                 ", name='" + name + '\'';
     }
+
+
 }

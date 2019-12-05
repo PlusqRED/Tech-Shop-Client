@@ -13,14 +13,6 @@ import ru.course.client.models.product.commons.Material;
 @Data
 public class Smartphone extends Product {
     private String os;
-    private Float displaySize;
-    private String displayResolution;
-    private String ram;
-    private Short numberOfBackCameras;
-    private Short numberOfFrontCameras;
-    private Color color;
-    private Material material;
-
     @Override
     public String toString() {
         return "Smartphone: " +
@@ -33,4 +25,16 @@ public class Smartphone extends Product {
                 ", color=" + color +
                 ", material=" + material;
     }
+
+    private Material material;
+
+    private String displayResolution;
+
+
+    private Short numberOfFrontCameras;
+    private Color color;
+    private String ram;
+    private Short numberOfBackCameras;
+    private Float displaySize;
+
 }

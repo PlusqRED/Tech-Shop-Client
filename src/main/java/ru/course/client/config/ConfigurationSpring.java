@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan("ru.course.client")
-public class SpringConfig {
+public class ConfigurationSpring {
 
     @Bean
     public OkHttpClient getOkHttpClient() {

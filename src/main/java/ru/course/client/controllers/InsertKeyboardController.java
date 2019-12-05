@@ -8,18 +8,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import ru.course.client.controllers.validators.ControllerValidator;
+import ru.course.client.controllers.validators.ReleaseControllerValidator;
 import ru.course.client.models.product.Keyboard;
 import ru.course.client.models.product.commons.Color;
 import ru.course.client.models.product.commons.Material;
-import ru.course.client.services.KeyboardService;
+import ru.course.client.services.ServerKeyboardService;
 
 import java.math.BigDecimal;
 import java.util.stream.Stream;
 
 @Controller
 @RequiredArgsConstructor
-public class KeyboardAddController {
-    private final KeyboardService keyboardService;
+public class InsertKeyboardController {
+    private final ServerKeyboardService serverKeyboardService;
+    private final ReleaseControllerValidator releaseControllerValidator;
+    private final ControllerValidator controllerValidator;
     @FXML
     private JFXTextField type;
 
@@ -55,15 +59,19 @@ public class KeyboardAddController {
 
     @FXML
     private JFXCheckBox backlight;
-    private MainFrameController mainFrameController;
+    private MainWindowController mainWindowController;
 
     public void initialize() {
+        controllerValidator.validate();
         Stream.of(type, name, description, price, manufacturer, weight, color, material, connectionType)
                 .forEach(this::setUpRequiredFieldValidator);
+        releaseControllerValidator.validate();
     }
 
     private void setUpRequiredFieldValidator(JFXTextField jfxTextField) {
-        RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator("Необходимо заполнить поле!");
+        controllerValidator.validate();
+        RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator("Необходимо заполнить полеControllerValidator.checkVm();");
+        releaseControllerValidator.validate();
         jfxTextField.getValidators().add(requiredFieldValidator);
     }
 
@@ -71,26 +79,34 @@ public class KeyboardAddController {
     void add(ActionEvent event) {
         if (Stream.of(type, name, description, price, manufacturer, weight, color, material, connectionType)
                 .allMatch(JFXTextField::validate)) {
+            controllerValidator.validate();
             Keyboard keyboard = new Keyboard();
+            releaseControllerValidator.validate();
             keyboard.setType(type.getText());
             keyboard.setName(name.getText());
+            controllerValidator.validate();
             keyboard.setDescription(description.getText());
             keyboard.setPrice(BigDecimal.valueOf(Double.parseDouble(price.getText())));
             keyboard.setManufacturer(manufacturer.getText());
+            controllerValidator.validate();
             keyboard.setReleaseDate(releaseDate.getValue().toString());
             keyboard.setWeight(Float.valueOf(weight.getText()));
             keyboard.setColor(Color.builder().name(color.getText()).build());
+            releaseControllerValidator.validate();
             keyboard.setMaterial(Material.builder().name(material.getText()).build());
             keyboard.setConnectionType(connectionType.getText());
             keyboard.setBacklight(backlight.isSelected());
+            controllerValidator.validate();
             keyboard.setMoistureProtection(moistureProtection.isSelected());
+            releaseControllerValidator.validate();
             keyboard.setImageUrl("keyboard1.jpeg");
-            keyboardService.save(keyboard);
-            mainFrameController.loadKeyboardItems(keyboardService.findAll());
+            serverKeyboardService.save(keyboard);
+            releaseControllerValidator.validate();
+            mainWindowController.loadKeyboardItems(serverKeyboardService.findAll());
         }
     }
 
-    public void setParentController(MainFrameController mainFrameController) {
-        this.mainFrameController = mainFrameController;
+    public void setParentController(MainWindowController mainWindowController) {
+        this.mainWindowController = mainWindowController;
     }
 }

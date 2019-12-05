@@ -10,6 +10,6 @@ import ru.course.client.models.users.AppUser;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserSession {
+public class AppClientSession {
     private AppUser appUser;
 }

@@ -6,17 +6,12 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import ru.course.client.models.product.commons.Color;
 import ru.course.client.models.product.commons.Material;
-
-@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class Keyboard extends Product {
     private String connectionType;
-    private boolean backlight;
-    private boolean moistureProtection;
-    private Color color;
-    private Material material;
 
     @Override
     public String toString() {
@@ -27,6 +22,13 @@ public class Keyboard extends Product {
                 ", color=" + color +
                 ", material=" + material;
     }
+
+    private Material material;
+    private boolean backlight;
+    private boolean moistureProtection;
+    private Color color;
+
+
 }
 
 

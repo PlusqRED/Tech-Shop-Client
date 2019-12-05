@@ -7,20 +7,23 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import lombok.Setter;
 import org.springframework.stereotype.Controller;
+import ru.course.client.controllers.validators.ControllerValidator;
+import ru.course.client.controllers.validators.ReleaseControllerValidator;
 
 @Controller
-public class KeyboardListViewItemController implements ProductController {
+public class KeyboardItemController implements ProductController {
     @FXML
     private ImageView image;
+    @FXML
+    private Text name;
 
     @FXML
     private JFXTextArea description;
+    private ControllerValidator controllerValidator2;
 
     @FXML
     private Text type;
 
-    @FXML
-    private Text name;
 
     @FXML
     private Text manufacturer;
@@ -30,6 +33,16 @@ public class KeyboardListViewItemController implements ProductController {
 
     @FXML
     private Text weight;
+
+    private ControllerValidator controllerValidator1;
+
+
+    @FXML
+    private Text backlight;
+
+    @FXML
+    private Text moistureProtection;
+
 
     @FXML
     private Text color;
@@ -43,23 +56,12 @@ public class KeyboardListViewItemController implements ProductController {
     @FXML
     private Text connectionType;
 
-    @FXML
-    private Text backlight;
-
-    @FXML
-    private Text moistureProtection;
+    private ControllerValidator controllerValidator = new ControllerValidator();
+    private ReleaseControllerValidator releaseControllerValidator = new ReleaseControllerValidator();
 
 
     @Setter
     private Long id;
-
-    public void setType(String type) {
-        this.type.setText(type);
-    }
-
-    public void setConnectionType(String connectionType) {
-        this.connectionType.setText(connectionType);
-    }
 
     public void setBacklight(String backlight) {
         this.backlight.setText(backlight);
@@ -69,32 +71,36 @@ public class KeyboardListViewItemController implements ProductController {
         this.moistureProtection.setText(moistureProtection);
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer.setText(manufacturer);
+    public void setColor(String color) {
+        this.color.setText(color);
     }
 
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate.setText(releaseDate);
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer.setText(manufacturer);
     }
 
     public void setWeight(String weight) {
         this.weight.setText(weight);
     }
 
-    public void setColor(String color) {
-        this.color.setText(color);
-    }
-
-    public void setMaterial(String material) {
-        this.material.setText(material);
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate.setText(releaseDate);
     }
 
     public void setImage(Image image) {
         this.image.setImage(image);
     }
 
-    public void setDescription(String description) {
-        this.description.setText(description);
+    public void setType(String type) {
+        this.type.setText(type);
+    }
+
+    public void setMaterial(String material) {
+        this.material.setText(material);
+    }
+
+    public void setConnectionType(String connectionType) {
+        this.connectionType.setText(connectionType);
     }
 
     public void setName(String name) {
@@ -103,5 +109,9 @@ public class KeyboardListViewItemController implements ProductController {
 
     public void setPrice(String price) {
         this.price.setText(price);
+    }
+
+    public void setDescription(String description) {
+        this.description.setText(description);
     }
 }
