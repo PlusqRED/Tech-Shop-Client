@@ -30,6 +30,9 @@ import ru.course.client.models.statistic.TableViewStatisticItem;
 import ru.course.client.models.users.Role;
 import ru.course.client.services.*;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -158,24 +161,42 @@ public class MainWindowController {
         });
     }
 
+    private Comparator<Product> comparator = Comparator.comparing(Product::getPrice);
+    @FXML
+    private JFXTextField lastMonthTotalRevenue;
+    @FXML
+    private JFXTextField lastYearTotalRevenue;
+
     @FXML
     void sortKeyboardsByPrice(ActionEvent event) {
-
+        List<Keyboard> products = serverKeyboardService.findAll();
+        comparator = comparator.reversed();
+        products.sort(comparator);
+        loadKeyboardItems(products);
     }
 
     @FXML
     void sortMonitorsByPrice(ActionEvent event) {
-
+        List<Monitor> products = serverMonitorService.findAll();
+        comparator = comparator.reversed();
+        products.sort(comparator);
+        loadMonitorItems(products);
     }
 
     @FXML
     void sortMousesByPrice(ActionEvent event) {
-
+        List<Mouse> products = serverMouseService.findAll();
+        comparator = comparator.reversed();
+        products.sort(comparator);
+        loadMouseItems(products);
     }
 
     @FXML
     void sortSmartphonesByPrice(ActionEvent event) {
-
+        List<Smartphone> products = serverSmartphoneService.findAll();
+        comparator = comparator.reversed();
+        products.sort(comparator);
+        loadSmartphoneItems(products);
     }
 
     @FXML
@@ -279,7 +300,31 @@ public class MainWindowController {
         controllerValidator.validate();
         updateTotalRevenueStatisticField(tableViewStatisticItems);
         updateTopProductStatisticField(tableViewStatisticItems);
+        updateLastMonthTotalRevenue(tableViewStatisticItems);
+        updateLastYearTotalRevenue(tableViewStatisticItems);
         releaseControllerValidator.validate();
+    }
+
+    private void updateLastYearTotalRevenue(List<TableViewStatisticItem> tableViewStatisticItems) {
+        double sum = tableViewStatisticItems.stream()
+                .filter(item -> filterByChronoUnit(item, ChronoUnit.YEARS))
+                .map(TableViewStatisticItem::getDealPrice)
+                .mapToDouble(Double::valueOf)
+                .sum();
+        lastYearTotalRevenue.setText(String.format("%.2f руб.", sum));
+    }
+
+    private boolean filterByChronoUnit(TableViewStatisticItem tableViewStatisticItem, ChronoUnit chronoUnit) {
+        return chronoUnit.between(LocalDate.parse(tableViewStatisticItem.getDealDate()), LocalDate.now()) == 0;
+    }
+
+    private void updateLastMonthTotalRevenue(List<TableViewStatisticItem> tableViewStatisticItems) {
+        double sum = tableViewStatisticItems.stream()
+                .filter(item -> filterByChronoUnit(item, ChronoUnit.MONTHS))
+                .map(TableViewStatisticItem::getDealPrice)
+                .mapToDouble(Double::valueOf)
+                .sum();
+        lastMonthTotalRevenue.setText(String.format("%.2f руб.", sum));
     }
 
     @SuppressWarnings("all")
