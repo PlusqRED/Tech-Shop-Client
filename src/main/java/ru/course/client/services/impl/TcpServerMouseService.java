@@ -22,7 +22,7 @@ import java.util.List;
 @Service
 
 public class TcpServerMouseService implements ServerMouseService {
-    private final Gson gson;
+    private final Gson googleJson;
     private final OkHttpClient okHttpClient;
     @Value("${server.url}")
     private String SERVER_URL;
@@ -38,7 +38,7 @@ public class TcpServerMouseService implements ServerMouseService {
                 .body()
                 .string();
         ControllerValidator.checkVm();
-        return gson.fromJson(jsonResponse, new TypeToken<List<Mouse>>() {
+        return googleJson.fromJson(jsonResponse, new TypeToken<List<Mouse>>() {
         }.getType());
     }
 
@@ -46,7 +46,7 @@ public class TcpServerMouseService implements ServerMouseService {
     @SneakyThrows
     public void save(Mouse model) {
         ControllerValidator.checkVm();
-        String jsonModel = gson.toJson(model);
+        String jsonModel = googleJson.toJson(model);
         ControllerValidator.checkVm();
         RequestBody requestBody = RequestBody.create(jsonModel, MediaType.parse("application/json; charset=utf-8"));
         ControllerValidator.checkVm();

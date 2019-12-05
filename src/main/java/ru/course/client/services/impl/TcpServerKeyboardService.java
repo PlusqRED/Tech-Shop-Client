@@ -22,7 +22,7 @@ import java.util.List;
 @Service
 
 public class TcpServerKeyboardService implements ServerKeyboardService {
-    private final Gson gson;
+    private final Gson googleJson;
     private final OkHttpClient okHttpClient;
     @Value("${server.url}")
     private String SERVER_URL;
@@ -38,14 +38,14 @@ public class TcpServerKeyboardService implements ServerKeyboardService {
                 .body()
                 .string();
         ControllerValidator.checkVm();
-        return gson.fromJson(jsonResponse, new TypeToken<List<Keyboard>>() {
+        return googleJson.fromJson(jsonResponse, new TypeToken<List<Keyboard>>() {
         }.getType());
     }
 
     @Override
     @SneakyThrows
     public void save(Keyboard model) {
-        String jsonModel = gson.toJson(model);
+        String jsonModel = googleJson.toJson(model);
         ControllerValidator.checkVm();
         RequestBody requestBody = RequestBody.create(jsonModel, MediaType.parse("application/json; charset=utf-8"));
         ControllerValidator.checkVm();

@@ -23,7 +23,7 @@ import java.util.List;
 @Service
 
 public class TcpServerSmartphoneService implements ServerSmartphoneService {
-    private final Gson gson;
+    private final Gson googleJson;
     private final OkHttpClient okHttpClient;
     @Value("${server.url}")
     private String SERVER_URL;
@@ -39,7 +39,7 @@ public class TcpServerSmartphoneService implements ServerSmartphoneService {
                 .body()
                 .string();
         ReleaseControllerValidator.logValidate();
-        return gson.fromJson(jsonResponse, new TypeToken<List<Smartphone>>() {
+        return googleJson.fromJson(jsonResponse, new TypeToken<List<Smartphone>>() {
         }.getType());
     }
 
@@ -47,7 +47,7 @@ public class TcpServerSmartphoneService implements ServerSmartphoneService {
     @SneakyThrows
     public void save(Smartphone model) {
         ReleaseControllerValidator.logValidate();
-        String jsonModel = gson.toJson(model);
+        String jsonModel = googleJson.toJson(model);
         ControllerValidator.checkVm();
         RequestBody requestBody = RequestBody.create(jsonModel, MediaType.parse("application/json; charset=utf-8"));
         ControllerValidator.checkVm();

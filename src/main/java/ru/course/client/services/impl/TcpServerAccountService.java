@@ -19,7 +19,7 @@ import java.util.Optional;
 public class TcpServerAccountService implements ServerAccountService {
 
     private final OkHttpClient okHttpClient;
-    private final Gson gson;
+    private final Gson googleJson;
     @Value("${server.url}")
     private String SERVER_URL;
 
@@ -28,10 +28,10 @@ public class TcpServerAccountService implements ServerAccountService {
     @SuppressWarnings("all")
     public boolean isLoginAndPasswordValid(String login, String password) {
         ReleaseControllerValidator.logValidate();
-        String user = gson.toJson(AppUser.builder().login(login).password(password).build());
+        String user = googleJson.toJson(AppUser.builder().login(login).password(password).build());
         RequestBody requestBody = RequestBody.create(user, MediaType.parse("application/json; charset=utf-8"));
         ReleaseControllerValidator.logValidate();
-        return gson.fromJson(okHttpClient.newCall(new Request.Builder()
+        return googleJson.fromJson(okHttpClient.newCall(new Request.Builder()
                 .put(requestBody)
                 .url(SERVER_URL + "/v1/users/validate")
                 .build())
@@ -51,14 +51,14 @@ public class TcpServerAccountService implements ServerAccountService {
         ReleaseControllerValidator.logValidate();
         return response.code() == 404
                 ? Optional.empty()
-                : Optional.of(gson.fromJson(response.body().string(), AppUser.class));
+                : Optional.of(googleJson.fromJson(response.body().string(), AppUser.class));
     }
 
     @Override
     @SneakyThrows
     public void create(AppUser newCustomer) {
         ReleaseControllerValidator.logValidate();
-        String user = gson.toJson(newCustomer);
+        String user = googleJson.toJson(newCustomer);
         ReleaseControllerValidator.logValidate();
         RequestBody requestBody = RequestBody.create(user, MediaType.parse("application/json; charset=utf-8"));
         ReleaseControllerValidator.logValidate();

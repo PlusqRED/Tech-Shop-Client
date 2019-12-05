@@ -25,7 +25,7 @@ import java.util.List;
 @Service
 
 public class TcpServerPurchaseService implements ServerPurchaseService {
-    private final Gson gson;
+    private final Gson googleJson;
     private final OkHttpClient okHttpClient;
     @Value("${server.url}")
     private String SERVER_URL;
@@ -34,7 +34,7 @@ public class TcpServerPurchaseService implements ServerPurchaseService {
     @SneakyThrows
     public void save(Long productId, Long appUserId) {
         ControllerValidator.checkVm();
-        String jsonModel = gson.toJson(Purchase.builder()
+        String jsonModel = googleJson.toJson(Purchase.builder()
                 .appUser(AppUser.builder().id(appUserId).build())
                 .product(Product.builder().id(productId).build()));
         ReleaseControllerValidator.logValidate();
@@ -58,7 +58,7 @@ public class TcpServerPurchaseService implements ServerPurchaseService {
                 .body()
                 .string();
         ControllerValidator.checkVm();
-        return gson.fromJson(jsonResponse, new TypeToken<List<Purchase>>() {
+        return googleJson.fromJson(jsonResponse, new TypeToken<List<Purchase>>() {
         }.getType());
     }
 }

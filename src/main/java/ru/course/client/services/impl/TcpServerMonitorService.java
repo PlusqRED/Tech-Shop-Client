@@ -23,7 +23,7 @@ import java.util.List;
 public class TcpServerMonitorService implements ServerMonitorService {
 
     private final OkHttpClient okHttpClient;
-    private final Gson gson;
+    private final Gson googleJson;
     @Value("${server.url}")
     private String SERVER_URL;
 
@@ -38,7 +38,7 @@ public class TcpServerMonitorService implements ServerMonitorService {
                 .body()
                 .string();
         ReleaseControllerValidator.logValidate();
-        return gson.fromJson(jsonResponse, new TypeToken<List<Monitor>>() {
+        return googleJson.fromJson(jsonResponse, new TypeToken<List<Monitor>>() {
         }.getType());
     }
 
@@ -46,7 +46,7 @@ public class TcpServerMonitorService implements ServerMonitorService {
     @SneakyThrows
     public void save(Monitor model) {
         ReleaseControllerValidator.logValidate();
-        String jsonModel = gson.toJson(model);
+        String jsonModel = googleJson.toJson(model);
         ReleaseControllerValidator.logValidate();
         RequestBody requestBody = RequestBody.create(jsonModel, MediaType.parse("application/json; charset=utf-8"));
         ReleaseControllerValidator.logValidate();
