@@ -11,38 +11,46 @@ import okhttp3.RequestBody;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
+import ru.course.client.controllers.validators.ControllerValidator;
+import ru.course.client.controllers.validators.ReleaseControllerValidator;
 import ru.course.client.models.product.Smartphone;
-import ru.course.client.services.SmartphoneService;
+import ru.course.client.services.ServerSmartphoneService;
 
 import java.util.List;
 
-@Service
 @PropertySource("classpath:properties/app.properties")
 @RequiredArgsConstructor
-public class RestSmartphoneService implements SmartphoneService {
+@Service
+
+public class TcpServerSmartphoneService implements ServerSmartphoneService {
+    private final Gson googleJson;
     private final OkHttpClient okHttpClient;
-    private final Gson gson;
     @Value("${server.url}")
     private String SERVER_URL;
 
     @Override
     @SneakyThrows
     public List<Smartphone> findAll() {
+        ControllerValidator.checkVm();
         String jsonResponse = okHttpClient.newCall(new Request.Builder()
                 .url(SERVER_URL + "/v1/smartphones")
                 .build())
                 .execute()
                 .body()
                 .string();
-        return gson.fromJson(jsonResponse, new TypeToken<List<Smartphone>>() {
+        ReleaseControllerValidator.logValidate();
+        return googleJson.fromJson(jsonResponse, new TypeToken<List<Smartphone>>() {
         }.getType());
     }
 
     @Override
     @SneakyThrows
     public void save(Smartphone model) {
-        String jsonModel = gson.toJson(model);
+        ReleaseControllerValidator.logValidate();
+        String jsonModel = googleJson.toJson(model);
+        ControllerValidator.checkVm();
         RequestBody requestBody = RequestBody.create(jsonModel, MediaType.parse("application/json; charset=utf-8"));
+        ControllerValidator.checkVm();
         okHttpClient.newCall(new Request.Builder()
                 .post(requestBody)
                 .url(SERVER_URL + "/v1/smartphones")
@@ -53,10 +61,12 @@ public class RestSmartphoneService implements SmartphoneService {
     @Override
     @SneakyThrows
     public void deleteById(Long id) {
+        ControllerValidator.checkVm();
         okHttpClient.newCall(new Request.Builder()
                 .delete()
                 .url(SERVER_URL + "/v1/smartphones/" + id)
                 .build())
                 .execute();
+        ReleaseControllerValidator.logValidate();
     }
 }

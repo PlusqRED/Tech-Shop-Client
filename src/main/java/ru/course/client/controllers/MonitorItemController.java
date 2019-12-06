@@ -11,54 +11,50 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-public class MonitorListViewItemController implements ProductController {
+public class MonitorItemController implements ProductController {
     @FXML
     private Text diagonal;
 
-    @FXML
-    private Text aspectRatio;
 
     @FXML
-    private Text resolution;
-
+    private Text releaseDate;
     @FXML
     private Text matrixType;
-
-    @FXML
-    private Text matrixFrequency;
 
     @FXML
     private Text builtInSpeakers;
 
     @FXML
-    private ImageView image;
+    private JFXTextArea description;
+    @FXML
+    private Text aspectRatio;
+    @FXML
+    private Text matrixFrequency;
+
 
     @FXML
-    private JFXTextArea description;
+    private Text resolution;
+    @FXML
+    private Text weight;
 
+    @FXML
+    private Text color;
     @FXML
     private Text type;
 
     @FXML
     private Text name;
 
-    @FXML
-    private Text manufacturer;
-
-    @FXML
-    private Text releaseDate;
-
-    @FXML
-    private Text weight;
-
-    @FXML
-    private Text color;
 
     @FXML
     private Text material;
 
     @FXML
     private Text price;
+    @FXML
+    private Text manufacturer;
+    @FXML
+    private ImageView image;
 
 
     private Long id;
@@ -67,12 +63,13 @@ public class MonitorListViewItemController implements ProductController {
         this.id = id;
     }
 
-    public void setType(String type) {
-        this.type.setText(type);
+
+    public void setBuiltInSpeakers(String builtInSpeakers) {
+        this.builtInSpeakers.setText(builtInSpeakers);
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer.setText(manufacturer);
+    public void setMaterial(String material) {
+        this.material.setText(material);
     }
 
     public void setReleaseDate(String releaseDate) {
@@ -83,12 +80,42 @@ public class MonitorListViewItemController implements ProductController {
         this.weight.setText(weight);
     }
 
+    public void setMatrixFrequency(String matrixFrequency) {
+        this.matrixFrequency.setText(matrixFrequency);
+    }
+
+    public void setPrice(String price) {
+        this.price.setText(price);
+    }
+
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer.setText(manufacturer);
+    }
+
     public void setColor(String color) {
         this.color.setText(color);
     }
 
-    public void setMaterial(String material) {
-        this.material.setText(material);
+    public void setType(String type) {
+        this.type.setText(type);
+    }
+
+    public void setAspectRatio(String aspectRatio) {
+        this.aspectRatio.setText(aspectRatio);
+    }
+
+    public void setResolution(String resolution) {
+        this.resolution.setText(resolution);
+    }
+
+
+    public void setMatrixType(String matrixType) {
+        this.matrixType.setText(matrixType);
+    }
+
+    public void setDiagonal(String diagonal) {
+        this.diagonal.setText(diagonal);
     }
 
     public void setImage(Image image) {
@@ -103,31 +130,5 @@ public class MonitorListViewItemController implements ProductController {
         this.name.setText(name);
     }
 
-    public void setPrice(String price) {
-        this.price.setText(price);
-    }
 
-    public void setDiagonal(String diagonal) {
-        this.diagonal.setText(diagonal);
-    }
-
-    public void setAspectRatio(String aspectRatio) {
-        this.aspectRatio.setText(aspectRatio);
-    }
-
-    public void setResolution(String resolution) {
-        this.resolution.setText(resolution);
-    }
-
-    public void setMatrixType(String matrixType) {
-        this.matrixType.setText(matrixType);
-    }
-
-    public void setMatrixFrequency(String matrixFrequency) {
-        this.matrixFrequency.setText(matrixFrequency);
-    }
-
-    public void setBuiltInSpeakers(String builtInSpeakers) {
-        this.builtInSpeakers.setText(builtInSpeakers);
-    }
 }

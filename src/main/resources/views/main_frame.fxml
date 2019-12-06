@@ -18,12 +18,13 @@
                                     style="-fx-background-color: #D7FFFE;">
                             <children>
                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3e2ff" height="114.0" layoutX="50.0"
-                                           layoutY="629.0" stroke="#0000005d" strokeType="INSIDE" width="900.0"/>
-                                <JFXListView fx:id="monitors_lv" prefHeight="406.0" prefWidth="200.0"
-                                             AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0"
-                                             AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
-                                <HBox layoutX="235.0" layoutY="645.0" prefHeight="82.0" prefWidth="530.0" spacing="30.0"
-                                      AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="90.0">
+                                           layoutY="14.0" stroke="#0000005d" strokeType="INSIDE" width="900.0"
+                                           AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="14.0"/>
+                                <JFXListView fx:id="monitors_lv" layoutY="150.0" prefHeight="406.0" prefWidth="200.0"
+                                             AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                             AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0"/>
+                                <HBox layoutX="380.0" layoutY="34.0" prefHeight="82.0" prefWidth="530.0" spacing="30.0"
+                                      AnchorPane.leftAnchor="380.0">
                                     <children>
                                         <VBox spacing="30.0">
                                             <children>
@@ -48,8 +49,7 @@
                                         </JFXButton>
                                     </children>
                                 </HBox>
-                                <VBox layoutX="78.0" layoutY="655.0" spacing="10.0" AnchorPane.bottomAnchor="50.0"
-                                      AnchorPane.leftAnchor="90.0">
+                                <VBox layoutX="90.0" layoutY="46.0" spacing="10.0" AnchorPane.leftAnchor="90.0">
                                     <children>
                                         <JFXButton onAction="#printMonitorsDoc" prefWidth="180.0"
                                                    style="-fx-background-color: #abddab;" text="Напечатать отчет"/>
@@ -67,12 +67,12 @@
                                     style="-fx-background-color: #D7FFFE;">
                             <children>
                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3e2ff" height="114.0" layoutX="50.0"
-                                           layoutY="629.0" stroke="#0000005d" strokeType="INSIDE" width="900.0"/>
-                                <JFXListView fx:id="mouses_lv" AnchorPane.bottomAnchor="150.0"
+                                           layoutY="14.0" stroke="#0000005d" strokeType="INSIDE" width="900.0"/>
+                                <JFXListView fx:id="mouses_lv" layoutY="152.0" AnchorPane.bottomAnchor="-2.0"
                                              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                                             AnchorPane.topAnchor="0.0"/>
-                                <HBox layoutX="235.0" layoutY="645.0" prefWidth="530.0" spacing="30.0"
-                                      AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="90.0">
+                                             AnchorPane.topAnchor="152.0"/>
+                                <HBox layoutX="380.0" layoutY="36.0" prefWidth="530.0" spacing="30.0"
+                                      AnchorPane.bottomAnchor="655.0" AnchorPane.rightAnchor="90.0">
                                     <children>
                                         <VBox spacing="30.0">
                                             <children>
@@ -97,7 +97,7 @@
                                         </JFXButton>
                                     </children>
                                 </HBox>
-                                <VBox layoutX="88.0" layoutY="665.0" spacing="10.0" AnchorPane.bottomAnchor="50.0"
+                                <VBox layoutX="90.0" layoutY="46.0" spacing="10.0" AnchorPane.bottomAnchor="665.0"
                                       AnchorPane.leftAnchor="90.0">
                                     <children>
                                         <JFXButton onAction="#printMousesDoc" prefWidth="180.0"
@@ -116,12 +116,12 @@
                                     style="-fx-background-color: #D7FFFE;">
                             <children>
                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3e2ff" height="114.0" layoutX="50.0"
-                                           layoutY="629.0" stroke="#0000005d" strokeType="INSIDE" width="900.0"/>
-                                <JFXListView fx:id="keyboards_lv" layoutX="123.0" layoutY="63.0"
-                                             AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0"
-                                             AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
-                                <HBox layoutX="276.0" layoutY="650.0" prefWidth="530.0" spacing="30.0"
-                                      AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="90.0">
+                                           layoutY="14.0" stroke="#0000005d" strokeType="INSIDE" width="900.0"/>
+                                <JFXListView fx:id="keyboards_lv" layoutY="150.0" AnchorPane.bottomAnchor="0.0"
+                                             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                             AnchorPane.topAnchor="150.0"/>
+                                <HBox layoutX="380.0" layoutY="36.0" prefWidth="530.0" spacing="30.0"
+                                      AnchorPane.bottomAnchor="655.0" AnchorPane.rightAnchor="90.0">
                                     <children>
                                         <VBox spacing="30.0">
                                             <children>
@@ -146,7 +146,7 @@
                                         </JFXButton>
                                     </children>
                                 </HBox>
-                                <VBox layoutX="88.0" layoutY="665.0" spacing="10.0" AnchorPane.bottomAnchor="50.0"
+                                <VBox layoutX="90.0" layoutY="46.0" spacing="10.0" AnchorPane.bottomAnchor="665.0"
                                       AnchorPane.leftAnchor="90.0">
                                     <children>
                                         <JFXButton onAction="#printKeyboardsDoc" prefWidth="180.0"
@@ -165,12 +165,12 @@
                                     style="-fx-background-color: #D7FFFE;">
                             <children>
                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3e2ff" height="114.0" layoutX="50.0"
-                                           layoutY="629.0" stroke="#0000005d" strokeType="INSIDE" width="900.0"/>
-                                <JFXListView fx:id="smartphones_lv" layoutX="140.0" layoutY="48.0"
-                                             AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0"
-                                             AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
-                                <HBox layoutX="388.0" layoutY="645.0" prefWidth="530.0" spacing="30.0"
-                                      AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="90.0">
+                                           layoutY="14.0" stroke="#0000005d" strokeType="INSIDE" width="900.0"/>
+                                <JFXListView fx:id="smartphones_lv" layoutY="150.0" AnchorPane.bottomAnchor="0.0"
+                                             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                             AnchorPane.topAnchor="150.0"/>
+                                <HBox layoutX="380.0" layoutY="36.0" prefWidth="530.0" spacing="30.0"
+                                      AnchorPane.bottomAnchor="655.0" AnchorPane.rightAnchor="90.0">
                                     <children>
                                         <VBox spacing="30.0">
                                             <children>
@@ -195,7 +195,7 @@
                                         </JFXButton>
                                     </children>
                                 </HBox>
-                                <VBox layoutX="76.0" layoutY="645.0" spacing="10.0" AnchorPane.bottomAnchor="50.0"
+                                <VBox layoutX="90.0" layoutY="46.0" spacing="10.0" AnchorPane.bottomAnchor="665.0"
                                       AnchorPane.leftAnchor="90.0">
                                     <children>
                                         <JFXButton onAction="#printSmartphonesDoc" prefWidth="180.0"
@@ -214,13 +214,14 @@
                                     style="-fx-background-color: #a4b1eb;">
                             <children>
                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4fac9dc" height="64.0" layoutX="214.0"
-                                           layoutY="45.0" stroke="#0000006f" strokeType="INSIDE" width="572.0"/>
-                                <JFXComboBox fx:id="addProductComboBox" layoutX="324.0" layoutY="52.0" prefHeight="39.0"
-                                             prefWidth="353.0" promptText="Выберите тип добавляемого продукта"/>
+                                           layoutY="663.0" stroke="#0000006f" strokeType="INSIDE" width="572.0"/>
+                                <JFXComboBox fx:id="addProductComboBox" layoutX="324.0" layoutY="670.0"
+                                             prefHeight="39.0" prefWidth="353.0"
+                                             promptText="Выберите тип добавляемого продукта"/>
+                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d8dfffcf" height="584.0" layoutX="91.0"
+                                           layoutY="47.0" stroke="#00000088" strokeType="INSIDE" width="819.0"/>
                                 <Pane fx:id="addPane" layoutX="151.0" layoutY="165.0" prefHeight="416.0"
-                                      prefWidth="699.0"/>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d8dfffcf" height="484.0" layoutX="93.0"
-                                           layoutY="142.0" stroke="#00000088" strokeType="INSIDE" width="814.0"/>
+                                      prefWidth="699.0" AnchorPane.topAnchor="80.0"/>
                             </children>
                         </AnchorPane>
                     </content>
@@ -230,9 +231,9 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"
                                     style="-fx-background-color: #d8dfff;">
                             <children>
-                                <TableView fx:id="statistic_tv" layoutX="246.0" layoutY="94.0" prefHeight="200.0"
-                                           prefWidth="200.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0"
-                                           AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <TableView fx:id="statistic_tv" layoutX="265.0" layoutY="261.0" prefHeight="200.0"
+                                           prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                           AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="400.0">
                                     <columns>
                                         <TableColumn prefWidth="156.0" text="Дата сделки"/>
                                         <TableColumn prefWidth="390.0" text="Название продукта"/>
@@ -240,9 +241,9 @@
                                         <TableColumn minWidth="0.0" prefWidth="247.0" text="Покупатель"/>
                                     </columns>
                                 </TableView>
-                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a9c9e8" height="174.0" layoutX="121.0"
-                                           layoutY="581.0" stroke="BLACK" strokeType="INSIDE" width="593.0"/>
-                                <VBox layoutX="165.0" layoutY="587.0" prefHeight="158.0" prefWidth="587.0"
+                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a9c9e8" height="355.0" layoutX="109.0"
+                                           layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="593.0"/>
+                                <VBox layoutX="153.0" layoutY="20.0" prefHeight="153.0" prefWidth="587.0"
                                       spacing="40.0">
                                     <children>
                                         <HBox spacing="30.0">
@@ -270,6 +271,30 @@
                                         </HBox>
                                         <HBox spacing="30.0">
                                             <children>
+                                                <Label prefHeight="25.0" prefWidth="300.0"
+                                                       text="Выручка за последний месяц">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                </Label>
+                                                <JFXTextField fx:id="lastMonthTotalRevenue" editable="false"
+                                                              prefHeight="25.0"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox spacing="30.0">
+                                            <children>
+                                                <Label prefHeight="25.0" prefWidth="300.0"
+                                                       text="Выручка за последний год">
+                                                    <font>
+                                                        <Font size="20.0"/>
+                                                    </font>
+                                                </Label>
+                                                <JFXTextField fx:id="lastYearTotalRevenue" editable="false"
+                                                              prefHeight="25.0"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox spacing="30.0">
+                                            <children>
                                                 <Label prefHeight="25.0" prefWidth="300.0" text="Общая выручка">
                                                     <font>
                                                         <Font size="20.0"/>
@@ -280,7 +305,7 @@
                                         </HBox>
                                     </children>
                                 </VBox>
-                                <JFXButton layoutX="775.0" layoutY="636.0" onAction="#updateStatisticItems"
+                                <JFXButton layoutX="763.0" layoutY="69.0" onAction="#updateStatisticItems"
                                            prefHeight="73.0" prefWidth="129.0" style="-fx-background-color: #ab66aa;"
                                            text="Обновить">
                                     <font>

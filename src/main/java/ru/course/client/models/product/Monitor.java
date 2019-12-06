@@ -13,14 +13,10 @@ import ru.course.client.models.product.commons.Material;
 @Data
 public class Monitor extends Product {
     private Float diagonal;
-    private String aspectRatio;
-    private String resolution;
-    private String matrixType;
-    private String matrixFrequency;
-    private boolean builtInSpeakers;
     private Color color;
     private Material material;
 
+    private String matrixFrequency;
     @Override
     public String toString() {
         return "Monitor: " +
@@ -33,4 +29,13 @@ public class Monitor extends Product {
                 ", color=" + color +
                 ", material=" + material;
     }
+
+    private boolean builtInSpeakers;
+    private String resolution;
+    private String matrixType;
+    private String aspectRatio;
+
+
+
+
 }

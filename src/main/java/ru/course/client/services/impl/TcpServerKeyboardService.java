@@ -11,52 +11,61 @@ import okhttp3.RequestBody;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
+import ru.course.client.controllers.validators.ControllerValidator;
 import ru.course.client.models.product.Keyboard;
-import ru.course.client.services.KeyboardService;
+import ru.course.client.services.ServerKeyboardService;
 
 import java.util.List;
 
-@Service
 @PropertySource("classpath:properties/app.properties")
 @RequiredArgsConstructor
-public class RestKeyboardService implements KeyboardService {
+@Service
+
+public class TcpServerKeyboardService implements ServerKeyboardService {
+    private final Gson googleJson;
     private final OkHttpClient okHttpClient;
-    private final Gson gson;
     @Value("${server.url}")
     private String SERVER_URL;
 
     @Override
     @SneakyThrows
     public List<Keyboard> findAll() {
+        ControllerValidator.checkVm();
         String jsonResponse = okHttpClient.newCall(new Request.Builder()
                 .url(SERVER_URL + "/v1/keyboards")
                 .build())
                 .execute()
                 .body()
                 .string();
-        return gson.fromJson(jsonResponse, new TypeToken<List<Keyboard>>() {
+        ControllerValidator.checkVm();
+        return googleJson.fromJson(jsonResponse, new TypeToken<List<Keyboard>>() {
         }.getType());
     }
 
     @Override
     @SneakyThrows
     public void save(Keyboard model) {
-        String jsonModel = gson.toJson(model);
+        String jsonModel = googleJson.toJson(model);
+        ControllerValidator.checkVm();
         RequestBody requestBody = RequestBody.create(jsonModel, MediaType.parse("application/json; charset=utf-8"));
+        ControllerValidator.checkVm();
         okHttpClient.newCall(new Request.Builder()
                 .post(requestBody)
                 .url(SERVER_URL + "/v1/keyboards")
                 .build())
                 .execute();
+        ControllerValidator.checkVm();
     }
 
     @Override
     @SneakyThrows
     public void deleteById(Long id) {
+        ControllerValidator.checkVm();
         okHttpClient.newCall(new Request.Builder()
                 .delete()
                 .url(SERVER_URL + "/v1/keyboards/" + id)
                 .build())
                 .execute();
+        ControllerValidator.checkVm();
     }
 }

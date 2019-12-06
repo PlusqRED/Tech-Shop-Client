@@ -4,7 +4,7 @@ import ru.course.client.models.users.AppUser;
 
 import java.util.Optional;
 
-public interface AccountService {
+public interface ServerAccountService {
 
     boolean isLoginAndPasswordValid(String login, String password);
 

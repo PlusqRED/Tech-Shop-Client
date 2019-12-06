@@ -5,13 +5,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Data
+
 public class AppUser {
-    private Long id;
-    private String login;
     private String password;
     private Role role;
+    private String phoneNumber;
+    private String birthday;
+    private Long id;
+    private String login;
 }

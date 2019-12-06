@@ -5,20 +5,27 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import ru.course.client.config.SpringConfig;
-import ru.course.client.controllers.AuthController;
+import ru.course.client.config.ConfigurationSpring;
+import ru.course.client.controllers.SignInController;
+import ru.course.client.controllers.validators.ControllerValidator;
+import ru.course.client.controllers.validators.ReleaseControllerValidator;
 
 public class Launcher extends Application {
     public static AnnotationConfigApplicationContext context;
 
     public void start(Stage primaryStage) throws Exception {
-        context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        context = new AnnotationConfigApplicationContext(ConfigurationSpring.class);
+        ControllerValidator.checkVm();
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/auth.fxml"));
-        AuthController authController = context.getBean("authController", AuthController.class);
-        authController.setStage(primaryStage);
-        loader.setController(authController);
+        SignInController signInController = context.getBean("signInController", SignInController.class);
+        ReleaseControllerValidator.logValidate();
+        signInController.setStage(primaryStage);
+        loader.setController(signInController);
+        ControllerValidator.checkVm();
         primaryStage.setScene(new Scene(loader.load()));
         primaryStage.setTitle("Авторизация");
+        ReleaseControllerValidator.logValidate();
         primaryStage.show();
+        ControllerValidator.checkVm();
     }
 }

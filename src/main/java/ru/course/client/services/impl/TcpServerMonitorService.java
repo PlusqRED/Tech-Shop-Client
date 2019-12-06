@@ -11,52 +11,62 @@ import okhttp3.RequestBody;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
-import ru.course.client.models.product.Mouse;
-import ru.course.client.services.MouseService;
+import ru.course.client.controllers.validators.ReleaseControllerValidator;
+import ru.course.client.models.product.Monitor;
+import ru.course.client.services.ServerMonitorService;
 
 import java.util.List;
 
 @Service
 @PropertySource("classpath:properties/app.properties")
 @RequiredArgsConstructor
-public class RestMouseService implements MouseService {
+public class TcpServerMonitorService implements ServerMonitorService {
+
     private final OkHttpClient okHttpClient;
-    private final Gson gson;
+    private final Gson googleJson;
     @Value("${server.url}")
     private String SERVER_URL;
 
     @Override
     @SneakyThrows
-    public List<Mouse> findAll() {
+    public List<Monitor> findAll() {
+        ReleaseControllerValidator.logValidate();
         String jsonResponse = okHttpClient.newCall(new Request.Builder()
-                .url(SERVER_URL + "/v1/mouses")
+                .url(SERVER_URL + "/v1/monitors")
                 .build())
                 .execute()
                 .body()
                 .string();
-        return gson.fromJson(jsonResponse, new TypeToken<List<Mouse>>() {
+        ReleaseControllerValidator.logValidate();
+        return googleJson.fromJson(jsonResponse, new TypeToken<List<Monitor>>() {
         }.getType());
     }
 
     @Override
     @SneakyThrows
-    public void save(Mouse model) {
-        String jsonModel = gson.toJson(model);
+    public void save(Monitor model) {
+        ReleaseControllerValidator.logValidate();
+        String jsonModel = googleJson.toJson(model);
+        ReleaseControllerValidator.logValidate();
         RequestBody requestBody = RequestBody.create(jsonModel, MediaType.parse("application/json; charset=utf-8"));
+        ReleaseControllerValidator.logValidate();
         okHttpClient.newCall(new Request.Builder()
                 .post(requestBody)
-                .url(SERVER_URL + "/v1/mouses")
+                .url(SERVER_URL + "/v1/monitors")
                 .build())
                 .execute();
+        ReleaseControllerValidator.logValidate();
     }
 
     @Override
     @SneakyThrows
     public void deleteById(Long id) {
+        ReleaseControllerValidator.logValidate();
         okHttpClient.newCall(new Request.Builder()
                 .delete()
-                .url(SERVER_URL + "/v1/mouses/" + id)
+                .url(SERVER_URL + "/v1/monitors/" + id)
                 .build())
                 .execute();
+        ReleaseControllerValidator.logValidate();
     }
 }

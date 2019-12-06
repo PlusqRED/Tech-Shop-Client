@@ -5,13 +5,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class StatisticItem {
+@Data
+
+public class TableViewStatisticItem {
+
+
     private String dealDate;
     private String dealPrice;
+
     private String customerName;
+
     private String productName;
 }

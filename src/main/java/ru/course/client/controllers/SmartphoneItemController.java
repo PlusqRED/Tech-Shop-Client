@@ -7,15 +7,26 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import lombok.Setter;
 import org.springframework.stereotype.Controller;
+import ru.course.client.controllers.validators.ReleaseControllerValidator;
 
 @Controller
-public class SmartphoneListViewItemController implements ProductController {
+public class SmartphoneItemController implements ProductController {
+
+    @FXML
+    private Text os;
+
+    @FXML
+    private Text color;
+
+    @FXML
+    private Text releaseDate;
+
+    @FXML
+    private Text weight;
+    @FXML
+    private Text numberOfBackCameras;
     @FXML
     private ImageView image;
-
-    @FXML
-    private JFXTextArea description;
-
     @FXML
     private Text type;
 
@@ -24,27 +35,14 @@ public class SmartphoneListViewItemController implements ProductController {
 
     @FXML
     private Text manufacturer;
-
-    @FXML
-    private Text releaseDate;
-
-    @FXML
-    private Text weight;
-
-    @FXML
-    private Text color;
-
     @FXML
     private Text material;
+    @FXML
+    private JFXTextArea description;
 
     @FXML
     private Text price;
 
-    @FXML
-    private Text os;
-
-    @FXML
-    private Text displaySize;
 
     @FXML
     private Text displayResolution;
@@ -52,14 +50,30 @@ public class SmartphoneListViewItemController implements ProductController {
     @FXML
     private Text ram;
 
-    @FXML
-    private Text numberOfBackCameras;
 
+    @FXML
+    private Text displaySize;
     @FXML
     private Text numberOfFrontCameras;
 
     @Setter
     private Long id;
+
+
+    public void setDescription(String description) {
+        ReleaseControllerValidator.logValidate();
+        this.description.setText(description);
+    }
+
+    public void setRam(String ram) {
+        this.ram.setText(ram);
+    }
+
+    public void setNumberOfBackCameras(String numberOfBackCameras) {
+        this.numberOfBackCameras.setText(numberOfBackCameras);
+        ReleaseControllerValidator.logValidate();
+    }
+
 
     public void setOs(String os) {
         this.os.setText(os);
@@ -73,16 +87,14 @@ public class SmartphoneListViewItemController implements ProductController {
         this.displayResolution.setText(displayResolution);
     }
 
-    public void setRam(String ram) {
-        this.ram.setText(ram);
-    }
-
-    public void setNumberOfBackCameras(String numberOfBackCameras) {
-        this.numberOfBackCameras.setText(numberOfBackCameras);
+    public void setWeight(String weight) {
+        this.weight.setText(weight);
+        ReleaseControllerValidator.logValidate();
     }
 
     public void setNumberOfFrontCameras(String numberOfFrontCameras) {
         this.numberOfFrontCameras.setText(numberOfFrontCameras);
+        ReleaseControllerValidator.logValidate();
     }
 
     public void setType(String type) {
@@ -93,35 +105,31 @@ public class SmartphoneListViewItemController implements ProductController {
         this.manufacturer.setText(manufacturer);
     }
 
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate.setText(releaseDate);
-    }
-
-    public void setWeight(String weight) {
-        this.weight.setText(weight);
-    }
 
     public void setColor(String color) {
         this.color.setText(color);
     }
 
-    public void setMaterial(String material) {
-        this.material.setText(material);
-    }
-
     public void setImage(Image image) {
         this.image.setImage(image);
-    }
-
-    public void setDescription(String description) {
-        this.description.setText(description);
-    }
-
-    public void setName(String name) {
-        this.name.setText(name);
+        ReleaseControllerValidator.logValidate();
     }
 
     public void setPrice(String price) {
         this.price.setText(price);
     }
+    public void setMaterial(String material) {
+        this.material.setText(material);
+        ReleaseControllerValidator.logValidate();
+    }
+    public void setName(String name) {
+        this.name.setText(name);
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate.setText(releaseDate);
+        ReleaseControllerValidator.logValidate();
+    }
+
+
 }

@@ -7,18 +7,19 @@ import okhttp3.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
+import ru.course.client.controllers.validators.ReleaseControllerValidator;
 import ru.course.client.models.users.AppUser;
-import ru.course.client.services.AccountService;
+import ru.course.client.services.ServerAccountService;
 
 import java.util.Optional;
 
 @Service
 @PropertySource("classpath:properties/app.properties")
 @RequiredArgsConstructor
-public class RestAccountService implements AccountService {
+public class TcpServerAccountService implements ServerAccountService {
 
     private final OkHttpClient okHttpClient;
-    private final Gson gson;
+    private final Gson googleJson;
     @Value("${server.url}")
     private String SERVER_URL;
 
@@ -26,9 +27,11 @@ public class RestAccountService implements AccountService {
     @SneakyThrows
     @SuppressWarnings("all")
     public boolean isLoginAndPasswordValid(String login, String password) {
-        String user = gson.toJson(AppUser.builder().login(login).password(password).build());
+        ReleaseControllerValidator.logValidate();
+        String user = googleJson.toJson(AppUser.builder().login(login).password(password).build());
         RequestBody requestBody = RequestBody.create(user, MediaType.parse("application/json; charset=utf-8"));
-        return gson.fromJson(okHttpClient.newCall(new Request.Builder()
+        ReleaseControllerValidator.logValidate();
+        return googleJson.fromJson(okHttpClient.newCall(new Request.Builder()
                 .put(requestBody)
                 .url(SERVER_URL + "/v1/users/validate")
                 .build())
@@ -40,20 +43,25 @@ public class RestAccountService implements AccountService {
     @Override
     @SneakyThrows
     public Optional<AppUser> getAppUserByLogin(String login) {
+        ReleaseControllerValidator.logValidate();
         Response response = okHttpClient.newCall(new Request.Builder()
                 .url(SERVER_URL + "/v1/users/" + login)
                 .build())
                 .execute();
+        ReleaseControllerValidator.logValidate();
         return response.code() == 404
                 ? Optional.empty()
-                : Optional.of(gson.fromJson(response.body().string(), AppUser.class));
+                : Optional.of(googleJson.fromJson(response.body().string(), AppUser.class));
     }
 
     @Override
     @SneakyThrows
     public void create(AppUser newCustomer) {
-        String user = gson.toJson(newCustomer);
+        ReleaseControllerValidator.logValidate();
+        String user = googleJson.toJson(newCustomer);
+        ReleaseControllerValidator.logValidate();
         RequestBody requestBody = RequestBody.create(user, MediaType.parse("application/json; charset=utf-8"));
+        ReleaseControllerValidator.logValidate();
         okHttpClient.newCall(new Request.Builder()
                 .post(requestBody)
                 .url(SERVER_URL + "/v1/users")

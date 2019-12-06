@@ -6,17 +6,15 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import ru.course.client.models.product.commons.Color;
 import ru.course.client.models.product.commons.Material;
-
-@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+
 @Data
 public class Mouse extends Product {
     private String connectionType;
     private String sensorType;
-    private Short buttonAmount;
-    private Color color;
-    private Material material;
+
 
     @Override
     public String toString() {
@@ -27,4 +25,8 @@ public class Mouse extends Product {
                 ", color=" + color +
                 ", material=" + material;
     }
+
+    private Short buttonAmount;
+    private Color color;
+    private Material material;
 }

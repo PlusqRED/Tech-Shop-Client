@@ -6,20 +6,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Data
+
 public class Product {
+    private String releaseDate;
+    private Float weight;
     private Long id;
-    private String type;
     private String name;
     private String description;
     private BigDecimal price;
-    private String manufacturer;
-    private String releaseDate;
-    private Float weight;
+    private String type;
+
     private String imageUrl;
 
     @Override
@@ -35,4 +35,8 @@ public class Product {
                 ", weight=" + weight +
                 ", imageUrl='" + imageUrl + '\'';
     }
+
+    private String manufacturer;
+
+
 }
